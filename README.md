@@ -1,5 +1,5 @@
 # Reading List App
-This is a simple React application that allows users to create, edit, and delete books from a reading list.
+This is a simple React app that allows users to create, read, update and delete books from a reading list. It uses Axios library to make HTTP requests to an API that is hosted locally on port 3001.
 
 ### Getting Started
 To get started with this app, you can follow these steps:
