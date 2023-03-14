@@ -4,7 +4,8 @@ import BookList from "./components/BookList";
 import BooksContext from "./context/books";
 
 function App() {
-  const { fetchBooks } = useContext(BooksContext);
+  const { valueToShare } = useContext(BooksContext);
+  const { fetchBooks } = valueToShare;
 
   useEffect(() => {
     fetchBooks();
@@ -20,3 +21,4 @@ function App() {
 }
 
 export default App;
+

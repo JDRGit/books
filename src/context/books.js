@@ -15,7 +15,7 @@ function Provider({ children }) {
     const response = await axios.patch(`http://localhost:3001/books/${id}`, {
       title: newtitle,
     });
-    
+
     const updatedBooks = books.map((book) => {
       if (book.id === id) {
         return { ...book, ...response.data };
@@ -27,7 +27,7 @@ function Provider({ children }) {
 
   const deleteBookById = async (id) => {
     await axios.delete(`http://localhost:3001/books/${id}`);
-    
+
     const updatedBooks = books.filter((book) => book.id !== id);
     setBooks(updatedBooks);
   };
@@ -39,8 +39,19 @@ function Provider({ children }) {
     setBooks(updatedBooks);
   };
 
+  const valueToShare = {
+    books,
+    deleteBookById,
+    editBookById,
+    createBook,
+    fetchBooks,
+  };
 
-  return <BooksContext.Provider value={{}}>{children}</BooksContext.Provider>;
+  return (
+    <BooksContext.Provider value={{ valueToShare }}>
+      {children}
+    </BooksContext.Provider>
+  );
 }
 
 export { Provider };
